@@ -13,7 +13,7 @@ import javax.servlet.http.Cookie;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("${domain}/api/v1/fund")
+@RequestMapping("/api/v1/fund")
 public class ProjectContraller {
 
 

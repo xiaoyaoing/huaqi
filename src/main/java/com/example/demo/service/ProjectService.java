@@ -3,9 +3,11 @@ package com.example.demo.service;
 
 import com.example.demo.Vo.ResponseVo;
 import com.sun.xml.messaging.saaj.packaging.mime.internet.ContentType;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import java.util.UUID;
+@Service
 
 public class ProjectService {
 

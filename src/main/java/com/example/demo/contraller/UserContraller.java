@@ -13,7 +13,7 @@ import javax.servlet.http.Cookie;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("${domain}/api/v1/account") //domain为网站的域名
+@RequestMapping("/api/v1/account") //domain为网站的域名
 public class UserContraller {
 
 
