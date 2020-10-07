@@ -8,8 +8,8 @@
         <version>2.3.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.nju.edu</groupId>
+    <artifactId>citi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hq</name>
     <description>Demo project for Spring Boot</description>
@@ -97,6 +97,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

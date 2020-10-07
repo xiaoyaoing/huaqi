@@ -3,30 +3,19 @@ package com.example.demo.service;
 
 import com.example.demo.Vo.ResponseVo;
 import com.sun.xml.messaging.saaj.packaging.mime.internet.ContentType;
-import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import java.util.UUID;
-@Service
-
-public class ProjectService {
 
 
-    public static ResponseVo get_fund_list(){
-        return  null;
+public interface ProjectService {
+    ResponseVo getFundList();
 
-    }
+    ResponseVo getDetail(UUID uuid);
 
-    public  static ResponseVo get_deatil(UUID uuid){
-        return  null;
-    }
+    ResponseVo getReport();
 
-    public  static  ResponseVo get_report(){
-        return  null;
-    }
+    ResponseVo invest(UUID uuid, Cookie cookie, ContentType type);
 
-    public  static  ResponseVo invest(UUID uuid, Cookie cookie, ContentType type){
-        return  null;
-    }
-
+    ResponseVo create();
 }
