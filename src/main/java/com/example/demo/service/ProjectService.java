@@ -1,21 +1,18 @@
 package com.example.demo.service;
 
 
+import com.example.demo.Vo.ProjectForm;
 import com.example.demo.Vo.ResponseVo;
-import com.sun.xml.messaging.saaj.packaging.mime.internet.ContentType;
-
-import javax.servlet.http.Cookie;
-import java.util.UUID;
 
 
 public interface ProjectService {
     ResponseVo getFundList();
 
-    ResponseVo getDetail(UUID uuid);
+    ResponseVo getDetail(String uuid);
 
-    ResponseVo getReport();
+    ResponseVo getReport(String uuid);
 
-    ResponseVo invest(UUID uuid, Cookie cookie, ContentType type);
+    ResponseVo invest(String uuid, String sessionID, String contentType);
 
-    ResponseVo create();
+    ResponseVo create(String uuid, String contentType, ProjectForm vo);
 }

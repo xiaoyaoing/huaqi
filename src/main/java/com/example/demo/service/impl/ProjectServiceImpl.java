@@ -1,12 +1,9 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.Vo.ProjectForm;
 import com.example.demo.Vo.ResponseVo;
 import com.example.demo.service.ProjectService;
-import com.sun.xml.messaging.saaj.packaging.mime.internet.ContentType;
 import org.springframework.stereotype.Service;
-
-import javax.servlet.http.Cookie;
-import java.util.UUID;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -16,22 +13,24 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ResponseVo getDetail(UUID uuid) {
+    public ResponseVo getDetail(String uuid) {
         return null;
     }
 
     @Override
-    public ResponseVo getReport() {
+    public ResponseVo getReport(String uuid) {
         return null;
     }
 
     @Override
-    public ResponseVo invest(UUID uuid, Cookie cookie, ContentType type) {
+    public ResponseVo invest(String uuid, String sessionID, String contentType) {
         return null;
     }
 
     @Override
-    public ResponseVo create() {
+    public ResponseVo create(String uuid, String contentType, ProjectForm vo) {
         return null;
     }
+
+
 }
