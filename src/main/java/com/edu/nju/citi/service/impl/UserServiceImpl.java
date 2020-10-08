@@ -1,6 +1,6 @@
-package com.example.demo.service.impl;
+package com.edu.nju.citi.service.impl;
 
-import com.example.demo.service.UserService;
+import com.edu.nju.citi.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.edu.nju.citi.controller;
 
 
-import com.example.demo.Vo.ResponseVo;
+import com.edu.nju.citi.VO.ResponseVO;
 import com.sun.xml.messaging.saaj.packaging.mime.internet.ContentType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,19 +16,19 @@ import java.util.UUID;
 public class UserController {
     //cookie 用来判断用户是否登陆，但采用什么类存疑
     @PostMapping("/create")
-    public ResponseVo AccountCreationRequest(UUID Uuid, ContentType Content_type) {
+    public ResponseVO AccountCreationRequest(UUID Uuid, ContentType Content_type) {
         return null;
     }
 
     //账户注册
     @GetMapping("/request_verification")
-    public ResponseVo Verification(Cookie cookie, UUID Uuid) {
+    public ResponseVO Verification(Cookie cookie, UUID Uuid) {
         return null;
     }
 
     //账户验证
     @PostMapping("/verify")
-    public ResponseVo Verify(UUID uuid, Cookie cookie, ContentType type) {
+    public ResponseVO Verify(UUID uuid, Cookie cookie, ContentType type) {
         return null;
     }
 
@@ -36,14 +36,14 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public ResponseVo User_login(UUID uuid, ContentType type) {  //Content-Type: application/json required
+    public ResponseVO User_login(UUID uuid, ContentType type) {  //Content-Type: application/json required
         return null;
     }
 
     //用户登陆
 
     @GetMapping("/info")
-    public ResponseVo AccountInfo(UUID UUid, Cookie Cookie) {
+    public ResponseVO AccountInfo(UUID UUid, Cookie Cookie) {
         return null;
     }
 
@@ -51,13 +51,13 @@ public class UserController {
 
 
     @PostMapping("/info")
-    public ResponseVo Change_accountinfo(UUID uuid, Cookie cookie, ContentType type) {
+    public ResponseVO Change_accountinfo(UUID uuid, Cookie cookie, ContentType type) {
         return null;
     }
 
 
     @PostMapping("/bind")
-    public ResponseVo Bind_citiaccount(UUID uuid, Cookie cookie, ContentType type) {
+    public ResponseVO Bind_citiaccount(UUID uuid, Cookie cookie, ContentType type) {
         return null;
     }
 

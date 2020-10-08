@@ -1,4 +1,4 @@
-package com.example.demo.Vo;
+package com.edu.nju.citi.VO;
 
 import lombok.Data;
 
@@ -23,6 +23,5 @@ public class ProjectForm {
     private String fundGoal;
 
     private String minimumInvestAmount;
-
 
 }
