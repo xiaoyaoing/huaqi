@@ -30,7 +30,7 @@ public class ProjectController {
         }
         session.setAttribute("getFundListApiUuid", uuid);
         session.setMaxInactiveInterval(30 * 60);//每30分钟调用一次
-        return projectService.getFundList();
+        return ResponseEntity.ok(projectService.getFundList());
     }
 
     //uuid是在url中还是在http请求头中？
@@ -57,7 +57,7 @@ public class ProjectController {
     public ResponseEntity<ResponseVO<String>> create(@RequestHeader("uuid") String uuid, @RequestHeader("Content-Type") String contentType, @RequestBody ProjectForm project) {
         if (!contentType.equals("application/json"))
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);//这里可能以后要加上ErrorObject
-        return new ResponseEntity<>(projectService.create(uuid, project), HttpStatus.OK);
+        return ResponseEntity.ok(projectService.create(uuid, project));
     }
 
     //公布已投资项目的细节

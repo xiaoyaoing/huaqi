@@ -4,7 +4,6 @@ import com.edu.nju.citi.VO.FundReportForm;
 import com.edu.nju.citi.VO.ProjectForm;
 import com.edu.nju.citi.VO.ResponseVO;
 import com.edu.nju.citi.service.ProjectService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.UUID;
 @Service
 public class ProjectServiceImpl implements ProjectService {
     @Override
-    public ResponseEntity<ResponseVO<List<ProjectForm>>> getFundList() {
+    public ResponseVO<List<ProjectForm>> getFundList() {
         //从数据库获取项目实例并且封装成一个list
         //具体方式应该是从ProjectDao调用方法得到一个ProjectEntity的list
         //再通过这个list进行ProjectForm的list的初始化
