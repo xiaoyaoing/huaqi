@@ -9,6 +9,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Authorize {
+    /**
+     *
+     * @param jsonInformation json字符串
+     * @return json中包含的授权码
+     */
     public static String getToken(String jsonInformation) {
         JSONObject responseBody = (JSONObject) JSON.parse(jsonInformation);
         //System.out.println(responseBody.toString());
@@ -21,6 +26,11 @@ public class Authorize {
         return getTokenByRF(responseBody.get("refresh_token").toString());
     }
 
+    /**
+     *
+     * @param url 修正url格式
+     * @return
+     */
     public static String getTokenByRF(String url) {
         Pattern pattern = Pattern.compile("(\")([^<]*)(\")");
         Matcher matcher = pattern.matcher(url);
@@ -30,6 +40,10 @@ public class Authorize {
         return null;
     }
 
+    /**
+     *
+     * @return 简化版的授权码获得，不需要用户信息
+     */
     public static String getAccessToken() {
         OkHttpClient client = new OkHttpClient();
 
@@ -79,6 +93,12 @@ public class Authorize {
         return returnInformation;
     }
 
+    /**
+     *
+     * @param userID
+     * @param formerRefreshToken
+     * @return
+     */
     public static String refreshToken(String userID, String formerRefreshToken) {
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
@@ -103,6 +123,12 @@ public class Authorize {
         return returnInformation;
     }
 
+    /**
+     *
+     * @param token
+     * @param tokenType
+     * @return
+     */
     public static String revokeToken(String token, String tokenType) {
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
