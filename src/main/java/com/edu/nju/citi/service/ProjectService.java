@@ -5,11 +5,9 @@ import com.edu.nju.citi.VO.FundReportForm;
 import com.edu.nju.citi.VO.ProjectForm;
 import com.edu.nju.citi.VO.ResponseVO;
 
-import java.util.List;
-
 
 public interface ProjectService {
-    ResponseVO<List<ProjectForm>> getFundList();
+    ResponseVO getFundList();
 
     ResponseVO getDetail(String uuid);
 
@@ -19,5 +17,5 @@ public interface ProjectService {
 
     ResponseVO invest(String uuid, String sessionID, String contentType);
 
-    ResponseVO<String> create(String uuid, ProjectForm project);
+    ResponseVO create(ProjectForm project);
 }

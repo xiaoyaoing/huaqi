@@ -11,9 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
-//要不要考虑一下全部用HttpServletRequest来交互？
 @RestController
 @RequestMapping("/api/v1/fund")
 public class ProjectController {
@@ -21,25 +19,24 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
-    //这里的uuid是什么的uuid？
-    //这里的uuid是请求的uuid，用于标识请求，应该是从header里边提取
     @GetMapping("/list") //不用登陆
-    public ResponseEntity<ResponseVO<List<ProjectForm>>> getFundList(HttpSession session, @RequestHeader("uuid") String uuid) {
+    public ResponseEntity<ResponseVO> getFundList(HttpSession session, @RequestHeader("uuid") String uuid) {
         if (session.getAttribute("getFundListApiUuid") != null) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         session.setAttribute("getFundListApiUuid", uuid);
-        session.setMaxInactiveInterval(30 * 60);//每30分钟调用一次
+        session.setMaxInactiveInterval(30 * 60);//每30分钟可以调用一次
         return ResponseEntity.ok(projectService.getFundList());
     }
 
-    //uuid是在url中还是在http请求头中？
-    //如果是header就用@RequestHeader
-    //如果是url就用@RequestParam
-    //在url里
     @GetMapping("/{uuid}/detail")
-    public ResponseVO getDetail(@PathVariable("uuid") String uuid) {  //具体信息
-        return projectService.getDetail(uuid);
+    public ResponseEntity<ResponseVO> getDetail(HttpSession session, @PathVariable("uuid") String projectUuid, @RequestHeader("uuid") String apiUuid) {  //具体信息
+        if (session.getAttribute("getDetailApiUuid") != null) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+        session.setAttribute("getDetailApiUuid", apiUuid);
+        session.setMaxInactiveInterval(30 * 60);//每30分钟可以调用一次
+        return ResponseEntity.ok(projectService.getDetail(projectUuid));
     }
 
     //uuid同上
@@ -54,10 +51,15 @@ public class ProjectController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseVO<String>> create(@RequestHeader("uuid") String uuid, @RequestHeader("Content-Type") String contentType, @RequestBody ProjectForm project) {
+    public ResponseEntity<ResponseVO> create(HttpSession session, @RequestHeader("uuid") String uuid, @RequestHeader("Content-Type") String contentType, @RequestBody ProjectForm project) {
         if (!contentType.equals("application/json"))
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);//这里可能以后要加上ErrorObject
-        return ResponseEntity.ok(projectService.create(uuid, project));
+        if (session.getAttribute("createApiUuid") != null) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        }
+        session.setAttribute("createApiUuid", uuid);
+        session.setMaxInactiveInterval(30 * 60);//每30分钟可以调用一次
+        return ResponseEntity.ok(projectService.create(project));
     }
 
     //公布已投资项目的细节
