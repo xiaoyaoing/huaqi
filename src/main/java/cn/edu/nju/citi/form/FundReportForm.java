@@ -1,4 +1,4 @@
-package com.edu.nju.citi.VO;
+package cn.edu.nju.citi.form;
 
 import lombok.Data;
 

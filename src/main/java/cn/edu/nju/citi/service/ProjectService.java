@@ -1,9 +1,9 @@
-package com.edu.nju.citi.service;
+package cn.edu.nju.citi.service;
 
 
-import com.edu.nju.citi.VO.FundReportForm;
-import com.edu.nju.citi.VO.ProjectForm;
-import com.edu.nju.citi.VO.ResponseVO;
+import cn.edu.nju.citi.form.FundReportForm;
+import cn.edu.nju.citi.form.ProjectForm;
+import cn.edu.nju.citi.vo.ResponseVO;
 
 
 public interface ProjectService {

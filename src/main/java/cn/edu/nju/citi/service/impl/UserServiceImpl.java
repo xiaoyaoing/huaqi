@@ -1,6 +1,6 @@
-package com.edu.nju.citi.service.impl;
+package cn.edu.nju.citi.service.impl;
 
-import com.edu.nju.citi.service.UserService;
+import cn.edu.nju.citi.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service

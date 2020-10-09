@@ -1,7 +1,7 @@
-package com.edu.nju.citi.controller;
+package cn.edu.nju.citi.controller;
 
 
-import com.edu.nju.citi.VO.ResponseVO;
+import cn.edu.nju.citi.vo.ResponseVO;
 import com.sun.xml.messaging.saaj.packaging.mime.internet.ContentType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,7 +1,7 @@
-package com.edu.nju.citi;
+package cn.edu.nju.citi;
 
-import com.edu.nju.citi.API.Account;
-import com.edu.nju.citi.API.Authorize;
+import cn.edu.nju.citi.API.Account;
+import cn.edu.nju.citi.API.Authorize;
 
 public class AuthTest {
     public static void main(String[] args) {

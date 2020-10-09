@@ -1,4 +1,4 @@
-package com.edu.nju.citi;
+package cn.edu.nju.citi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

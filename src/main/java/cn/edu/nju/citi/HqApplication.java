@@ -1,4 +1,4 @@
-package com.edu.nju.citi;
+package cn.edu.nju.citi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
