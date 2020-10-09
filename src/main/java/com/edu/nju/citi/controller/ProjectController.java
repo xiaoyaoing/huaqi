@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 //要不要考虑一下全部用HttpServletRequest来交互？
 @RestController
@@ -23,7 +24,12 @@ public class ProjectController {
     //这里的uuid是什么的uuid？
     //这里的uuid是请求的uuid，用于标识请求，应该是从header里边提取
     @GetMapping("/list") //不用登陆
-    public ResponseVO getFundList(@RequestHeader("uuid") String uuid) {
+    public ResponseEntity<ResponseVO<List<ProjectForm>>> getFundList(HttpSession session, @RequestHeader("uuid") String uuid) {
+        if (session.getAttribute("getFundListApiUuid") != null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        session.setAttribute("getFundListApiUuid", uuid);
+        session.setMaxInactiveInterval(30 * 60);//每30分钟调用一次
         return projectService.getFundList();
     }
 
@@ -54,6 +60,7 @@ public class ProjectController {
         return new ResponseEntity<>(projectService.create(uuid, project), HttpStatus.OK);
     }
 
+    //公布已投资项目的细节
     @PostMapping("/{uuid}/report")
     public ResponseEntity<ResponseVO> postFundReport(HttpSession session, @PathVariable("uuid") String projectUuid, @RequestHeader("uuid") String apiUuid, @RequestHeader("Content-Type") String contentType, @RequestBody FundReportForm fundReport) {
         if (!contentType.equals("application/json"))
@@ -62,6 +69,7 @@ public class ProjectController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         session.setAttribute("postFundReportApiUuid", apiUuid);
+        session.setMaxInactiveInterval(24 * 60 * 60);//一天只能调用一次
         return ResponseEntity.ok(projectService.postReport(projectUuid, fundReport));
     }
 }

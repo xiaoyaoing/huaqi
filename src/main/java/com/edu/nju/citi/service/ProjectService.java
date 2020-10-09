@@ -4,10 +4,13 @@ package com.edu.nju.citi.service;
 import com.edu.nju.citi.VO.FundReportForm;
 import com.edu.nju.citi.VO.ProjectForm;
 import com.edu.nju.citi.VO.ResponseVO;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 
 public interface ProjectService {
-    ResponseVO getFundList();
+    ResponseEntity<ResponseVO<List<ProjectForm>>> getFundList();
 
     ResponseVO getDetail(String uuid);
 
