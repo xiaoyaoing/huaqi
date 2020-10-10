@@ -1,8 +1,9 @@
 package cn.edu.nju.citi.service.impl;
 
-import cn.edu.nju.citi.form.FundReportForm;
-import cn.edu.nju.citi.form.ProjectForm;
 import cn.edu.nju.citi.service.ProjectService;
+import cn.edu.nju.citi.vo.FundInvestmentVO;
+import cn.edu.nju.citi.vo.FundReportVO;
+import cn.edu.nju.citi.vo.ProjectVO;
 import cn.edu.nju.citi.vo.ResponseVO;
 import org.springframework.stereotype.Service;
 
@@ -29,22 +30,25 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ResponseVO getReport(String uuid) {
+        //从数据库中获取
+        //list套list
         return null;
     }
 
     @Override
-    public ResponseVO postReport(String uuid, FundReportForm fundReport) {
+    public ResponseVO postReport(String uuid, FundReportVO fundReport) {
         //通过数据库更新每日报告
         return ResponseVO.ok();
     }
 
     @Override
-    public ResponseVO invest(String uuid, String sessionID, String contentType) {
+    public ResponseVO invest(String uuid, String sessionID, FundInvestmentVO fundInvestment) {
+        //调用UserService的对应方法
         return null;
     }
 
     @Override
-    public ResponseVO create(ProjectForm project) {
+    public ResponseVO create(ProjectVO project) {
         //生成唯一的项目uuid
         String projectUuid = UUID.randomUUID().toString();
         //创建项目，在数据库中进行关联

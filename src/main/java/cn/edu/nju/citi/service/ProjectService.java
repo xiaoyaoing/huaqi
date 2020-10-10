@@ -1,8 +1,9 @@
 package cn.edu.nju.citi.service;
 
 
-import cn.edu.nju.citi.form.FundReportForm;
-import cn.edu.nju.citi.form.ProjectForm;
+import cn.edu.nju.citi.vo.FundInvestmentVO;
+import cn.edu.nju.citi.vo.FundReportVO;
+import cn.edu.nju.citi.vo.ProjectVO;
 import cn.edu.nju.citi.vo.ResponseVO;
 
 
@@ -13,9 +14,9 @@ public interface ProjectService {
 
     ResponseVO getReport(String uuid);
 
-    ResponseVO postReport(String uuid, FundReportForm fundReport);
+    ResponseVO postReport(String uuid, FundReportVO fundReport);
 
-    ResponseVO invest(String uuid, String sessionID, String contentType);
+    ResponseVO invest(String uuid, String sessionID, FundInvestmentVO fundInvestment);
 
-    ResponseVO create(ProjectForm project);
+    ResponseVO create(ProjectVO project);
 }

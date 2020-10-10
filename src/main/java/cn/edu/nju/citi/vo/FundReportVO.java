@@ -1,11 +1,11 @@
-package cn.edu.nju.citi.form;
+package cn.edu.nju.citi.vo;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class FundReportForm {
+public class FundReportVO {
     private Date time;
 
     private String income;

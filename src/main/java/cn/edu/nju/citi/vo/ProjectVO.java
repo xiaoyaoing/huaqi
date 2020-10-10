@@ -1,4 +1,4 @@
-package cn.edu.nju.citi.form;
+package cn.edu.nju.citi.vo;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class ProjectForm {
+public class ProjectVO {
 
     private String name;
 
@@ -23,5 +23,4 @@ public class ProjectForm {
     private String fundGoal;
 
     private String minimumInvestAmount;
-
 }
