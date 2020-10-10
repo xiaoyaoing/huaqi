@@ -1,9 +1,9 @@
 package cn.edu.nju.citi.controller;
 
 
+import cn.edu.nju.citi.form.FundInvestmentForm;
 import cn.edu.nju.citi.service.ProjectService;
 import cn.edu.nju.citi.service.UserService;
-import cn.edu.nju.citi.vo.FundInvestmentVO;
 import cn.edu.nju.citi.vo.FundReportVO;
 import cn.edu.nju.citi.vo.ProjectVO;
 import cn.edu.nju.citi.vo.ResponseVO;
@@ -35,7 +35,7 @@ public class ProjectController {
     }
 
     @PostMapping("/{uuid}/invest")
-    public ResponseEntity<ResponseVO> invest(@PathVariable("uuid") String uuid, @CookieValue("session_id") String sessionID, @RequestHeader("Content-Type") String contentType, @RequestBody FundInvestmentVO fundInvestment) {
+    public ResponseEntity<ResponseVO> invest(@PathVariable("uuid") String uuid, @CookieValue("session_id") String sessionID, @RequestHeader("Content-Type") String contentType, @RequestBody FundInvestmentForm fundInvestment) {
         if (sessionID == null) {
             return new ResponseEntity<>(ResponseVO.error("请先登录"), HttpStatus.BAD_REQUEST);
         }

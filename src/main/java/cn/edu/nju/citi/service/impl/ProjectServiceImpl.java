@@ -1,7 +1,7 @@
 package cn.edu.nju.citi.service.impl;
 
+import cn.edu.nju.citi.form.FundInvestmentForm;
 import cn.edu.nju.citi.service.ProjectService;
-import cn.edu.nju.citi.vo.FundInvestmentVO;
 import cn.edu.nju.citi.vo.FundReportVO;
 import cn.edu.nju.citi.vo.ProjectVO;
 import cn.edu.nju.citi.vo.ResponseVO;
@@ -42,7 +42,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ResponseVO invest(String uuid, String sessionID, FundInvestmentVO fundInvestment) {
+    public ResponseVO invest(String uuid, String sessionID, FundInvestmentForm fundInvestment) {
         //调用UserService的对应方法
         return null;
     }
