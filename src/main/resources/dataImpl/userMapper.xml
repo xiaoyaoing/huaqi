@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.nju.citi.data.user.UserMapper">
+    <insert id="createUser" parameterType="com.edu.nju.citi.PO.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(ID,username,email,password)
+        values (#{id},#{username},#{email},#{password});
+    </insert>
+    <select id="getUserByID" resultMap="User">
+        select * from user where ID=#{id}
+    </select>
+    <select id="getUserByEmail" resultMap="User">
+        select * from user where email=#{email}
+    </select>
+    <select id="getUserByName" resultMap="User">
+        select * from user where username=#{username}
+    </select>
+    <update id="updateUser" parameterType="com.edu.nju.citi.PO.User">
+        update user
+        <set>
+            username=#{username},
+            email=#{email},
+            password=#{password},
+        </set>
+        where ID=#{id}
+    </update>
+    <resultMap id="User" type="com.edu.nju.citi.PO.User">
+        <id column="ID" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="email" property="email"></result>
+        <result column="password" property="password"></result>
+        <result column="token" property="token"></result>
+        <result column="fresh_token" property="fresh_token"></result>
+    </resultMap>
+</mapper>

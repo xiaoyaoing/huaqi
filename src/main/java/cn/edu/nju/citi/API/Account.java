@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class Account {
+    /**
+     *
+     * @param access_token 用户的授权码
+     * @return含有用户信息的JSON
+     */
     public static String getAccountInformation(String access_token) {
         OkHttpClient client = new OkHttpClient();
         String information = "";
