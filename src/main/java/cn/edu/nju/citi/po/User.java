@@ -1,4 +1,4 @@
-package cn.edu.nju.citi.PO;
+package cn.edu.nju.citi.po;
 
 import lombok.Data;
 

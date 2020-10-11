@@ -1,9 +1,9 @@
 package cn.edu.nju.citi;
 
 import cn.edu.nju.citi.API.Authorize;
-import cn.edu.nju.citi.PO.User;
 import cn.edu.nju.citi.data.user.CitiUserMapper;
 import cn.edu.nju.citi.data.user.UserMapper;
+import cn.edu.nju.citi.po.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

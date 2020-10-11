@@ -1,6 +1,6 @@
 package cn.edu.nju.citi.data.user;
 
-import cn.edu.nju.citi.PO.User;
+import cn.edu.nju.citi.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
