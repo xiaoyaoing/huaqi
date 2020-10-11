@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.nju.citi.data.user.CitiUserMapper">
+    <update id="bindAccount">
+        update user
+        <set>
+            token=#{token},
+            fresh_token=#{fresh_token},
+        </set>
+        where ID=#{id}
+    </update>
+    <update id="unbindAccount">
+        update user
+        <set>
+            token=null,
+            fresh_token=null,
+        </set>
+        where ID=#{id}
+    </update>
+</mapper>

@@ -16,14 +16,16 @@ public class Authorize {
      */
     public static String getToken(String jsonInformation) {
         JSONObject responseBody = (JSONObject) JSON.parse(jsonInformation);
-        //System.out.println(responseBody.toString());
-        return getTokenByRF(responseBody.get("access_token").toString());
+        //System.out.println(responseBody.get("access_token"));
+        if (responseBody.get("access_token")==null) return null;
+        return responseBody.get("access_token").toString();
     }
 
     public static String getRefresh_Token(String jsonInformation) {
         JSONObject responseBody = (JSONObject) JSON.parse(jsonInformation);
         //System.out.println(responseBody.toString());
-        return getTokenByRF(responseBody.get("refresh_token").toString());
+        if (responseBody.get("refresh_token")==null) return null;
+        return responseBody.get("refresh_token").toString();
     }
 
     /**
@@ -42,7 +44,7 @@ public class Authorize {
 
     /**
      *
-     * @return 简化版的授权码获得，不需要用户信息
+     * @return 简化版的授权码获得，不需要用户信息（但是需要处理）
      */
     public static String getAccessToken() {
         OkHttpClient client = new OkHttpClient();
@@ -56,17 +58,17 @@ public class Authorize {
                 .addHeader("content-type", "application/x-www-form-urlencoded")
                 .addHeader("accept", "application/json")
                 .build();
-        String accesstoken = "";
+        String returnInformation = null;
         try {
             Response response = client.newCall(request).execute();
             ResponseBody responseBody = response.body();
             //System.out.println(responseBody.string());
-            accesstoken = responseBody.string();
+            returnInformation = responseBody.string();
         } catch (IOException ex) {
             System.out.println("Authorize request Error");
         }
-        System.out.println(accesstoken);
-        return accesstoken;
+        System.out.println(returnInformation);
+        return returnInformation;
     }
 
     public static String getAccessTokenWithGrantType(String code, String redirect_URL) {
@@ -110,7 +112,7 @@ public class Authorize {
                 .addHeader("authorization", "Basic NWM2M2Q0ZGUtMjdhMS00ZjE5LTkxNjUtZjFiNDUzNDVhOTMxOnZXNWxVNXhBMnhYMnlIN25INXBQOHFCMG1PNXBGMG5BN3hSOGRDMHRHM3NIMGhVOGtU")
                 .addHeader("content-type", "application/x-www-form-urlencoded")
                 .build();
-        String returnInformation = "";
+        String returnInformation = null;
         try {
             Response response = client.newCall(request).execute();
             ResponseBody responseBody = response.body();
@@ -141,7 +143,7 @@ public class Authorize {
                 .addHeader("content-type", "application/x-www-form-urlencoded")
                 .build();
 
-        String returnInformation = "";
+        String returnInformation = null;
         try {
             Response response = client.newCall(request).execute();
             ResponseBody responseBody = response.body();

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface citiUserMapper {
-    int bindAccount();
-    int unbindAccount();
+public interface CitiUserMapper {
+    int bindAccount(Integer id,String token,String fresh_token);
+    int unbindAccount(Integer id);
 }
