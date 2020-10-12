@@ -3,7 +3,7 @@ package cn.edu.nju.citi.vo;
 import lombok.Data;
 
 @Data
-public class FundInfoVo {
+public class FundInfoVO {
     private String uuid;
 
     private String name;
