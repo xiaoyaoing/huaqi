@@ -1,4 +1,4 @@
-package cn.edu.nju.citi.API;
+package cn.edu.nju.citi.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,7 +10,6 @@ import java.util.UUID;
 
 public class Account {
     /**
-     *
      * @param access_token 用户的授权码
      * @return含有用户信息的JSON
      */

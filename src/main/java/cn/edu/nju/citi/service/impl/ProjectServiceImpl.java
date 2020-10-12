@@ -1,9 +1,10 @@
 package cn.edu.nju.citi.service.impl;
 
+import cn.edu.nju.citi.form.FundCreationForm;
 import cn.edu.nju.citi.form.FundInvestmentForm;
+import cn.edu.nju.citi.form.FundReportForm;
 import cn.edu.nju.citi.service.ProjectService;
-import cn.edu.nju.citi.vo.FundReportVO;
-import cn.edu.nju.citi.vo.ProjectVO;
+import cn.edu.nju.citi.vo.FundCreationSuccessVO;
 import cn.edu.nju.citi.vo.ResponseVO;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ResponseVO postReport(String uuid, FundReportVO fundReport) {
+    public ResponseVO postReport(String uuid, FundReportForm fundReport) {
         //通过数据库更新每日报告
         return ResponseVO.ok();
     }
@@ -48,13 +49,15 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ResponseVO create(ProjectVO project) {
+    public ResponseVO create(FundCreationForm project) {
         //生成唯一的项目uuid
         String projectUuid = UUID.randomUUID().toString();
         //创建项目，在数据库中进行关联
 
-        //将uuid作为构造参数构造ResponseVO
+        //将uuid作为构造参数构造FundCreationSuccessVO，以及ResponseVO
         //返回构造的ResponseVO
-        return ResponseVO.ok(projectUuid);
+        FundCreationSuccessVO fundCreationSuccessVO = new FundCreationSuccessVO();
+        fundCreationSuccessVO.setUuid(projectUuid);
+        return ResponseVO.ok(fundCreationSuccessVO);
     }
 }

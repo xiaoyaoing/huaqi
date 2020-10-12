@@ -2,17 +2,15 @@ package cn.edu.nju.citi.vo;
 
 import lombok.Data;
 
-import java.util.Date;
-import java.util.List;
-
 @Data
-public class ProjectVO {
+public class FundInfoVo {
+    private String uuid;
 
     private String name;
 
     private String industry;
 
-    private List<Date> fundTimeRange;
+    private FundTimeVO fundTimeRange;
 
     private String riskPotential;
 

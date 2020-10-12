@@ -1,11 +1,11 @@
-package cn.edu.nju.citi.vo;
+package cn.edu.nju.citi.form;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class FundReportVO {
+public class FundReportForm {
     private Date time;
 
     private String income;
@@ -16,4 +16,3 @@ public class FundReportVO {
 
     private String analyseResult;
 }
-

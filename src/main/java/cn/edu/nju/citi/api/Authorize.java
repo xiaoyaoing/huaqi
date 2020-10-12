@@ -1,4 +1,4 @@
-package cn.edu.nju.citi.API;
+package cn.edu.nju.citi.api;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -10,26 +10,24 @@ import java.util.regex.Pattern;
 
 public class Authorize {
     /**
-     *
      * @param jsonInformation json字符串
      * @return json中包含的授权码
      */
     public static String getToken(String jsonInformation) {
         JSONObject responseBody = (JSONObject) JSON.parse(jsonInformation);
         //System.out.println(responseBody.get("access_token"));
-        if (responseBody.get("access_token")==null) return null;
+        if (responseBody.get("access_token") == null) return null;
         return responseBody.get("access_token").toString();
     }
 
     public static String getRefresh_Token(String jsonInformation) {
         JSONObject responseBody = (JSONObject) JSON.parse(jsonInformation);
         //System.out.println(responseBody.toString());
-        if (responseBody.get("refresh_token")==null) return null;
+        if (responseBody.get("refresh_token") == null) return null;
         return responseBody.get("refresh_token").toString();
     }
 
     /**
-     *
      * @param url 修正url格式
      * @return
      */
@@ -43,7 +41,6 @@ public class Authorize {
     }
 
     /**
-     *
      * @return 简化版的授权码获得，不需要用户信息（但是需要处理）
      */
     public static String getAccessToken() {
@@ -96,7 +93,6 @@ public class Authorize {
     }
 
     /**
-     *
      * @param userID
      * @param formerRefreshToken
      * @return
@@ -126,7 +122,6 @@ public class Authorize {
     }
 
     /**
-     *
      * @param token
      * @param tokenType
      * @return

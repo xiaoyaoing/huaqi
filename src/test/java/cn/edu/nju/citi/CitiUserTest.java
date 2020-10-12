@@ -1,6 +1,6 @@
 package cn.edu.nju.citi;
 
-import cn.edu.nju.citi.API.Authorize;
+import cn.edu.nju.citi.api.Authorize;
 import cn.edu.nju.citi.data.user.CitiUserMapper;
 import cn.edu.nju.citi.data.user.UserMapper;
 import cn.edu.nju.citi.po.User;

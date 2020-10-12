@@ -2,11 +2,9 @@ package cn.edu.nju.citi.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class FundListVO {
-    String name;
-
-    String industry;
-
-    String uuid;
+    private List<FundSimpleInfoVO> fundList;
 }
