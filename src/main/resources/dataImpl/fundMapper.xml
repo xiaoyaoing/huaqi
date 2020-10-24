@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.nju.citi.data.user.FundMapper">
+    <select id="getFundById" resultMap="Fund">
+        select * from fund where fund.ID=#{id}
+    </select>
+    <select id="getFundByName" resultMap="Fund">
+        select * from fund where fund.name=#{name}
+    </select>
+    <update id="updateFund" parameterType="com.edu.nju.citi.PO.Fund">
+        update fund
+        <set>
+            name=#{name},
+            industry=#{industry},
+            riskPotential=#{riskPotential},
+            investigationResult=#{investigationResult},
+            distributionDescription=#{distributionDescription},
+            fundGoal=#{fundGoal},
+            minimumInvestAmount=#{minimumInvestAmount},
+            beginTime=#{beginTime},
+            endTime=#{endTime},
+        </set>
+        where ID=#{id};
+    </update>
+    <insert id="createFund" parameterType="com.edu.nju.citi.PO.Fund" useGeneratedKeys="true" keyProperty="id">
+        insert into fund(ID,name, industry, riskPotential, investigationResult, distributionDescription, fundGoal, minimumInvestAmount,`beginTime`,`endTime`)
+        values (#{id},#{name}, #{industry}, #{riskPotential}, #{investigationResult}, #{distributionDescription}, #{fundGoal}, #{minimumInvestAmount},#{beginTime},#{endTime});
+
+    </insert>
+    <resultMap id="Fund" type="com.edu.nju.citi.PO.Fund">
+        <id column="ID" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="industry" property="industry"></result>
+        <result column="riskPotential" property="riskPotential"></result>
+        <result column="investigationResult" property="investigationResult"></result>
+        <result column="distributionDescription" property="distributionDescription"></result>
+        <result column="fundGoal" property="fundGoal"></result>
+        <result column="minimumInvestAmount" property="minimumInvestAmount"></result>
+        <result column="beginTime" property="beginTime"></result>
+        <result column="endTime" property="endTime"></result>
+    </resultMap>
+</mapper>

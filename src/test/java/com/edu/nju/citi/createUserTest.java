@@ -14,9 +14,9 @@ public class createUserTest {
     public void testCreateUser() {
         User user=new User();
         user.setEmail("2010075010@qq.com");
-        user.setId(1);
         user.setUsername("TscRubbish");
         user.setPassword("123456");
+        user.setId(1);
         try{
             usermapper.createUser(user);
         }catch (Exception ex){

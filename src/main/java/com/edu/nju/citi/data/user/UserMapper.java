@@ -18,4 +18,6 @@ public interface UserMapper {
     User getUserByEmail(String email);
     //更新
     int updateUser(User user);
+    //更新
+    int updateUserName(String name);
 }
